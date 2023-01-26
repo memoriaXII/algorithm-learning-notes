@@ -16,7 +16,7 @@ import ThemedImage from "@theme/ThemedImage";
 let socialLinks = [
   {
     name: "Twitter",
-    url: "https://github.com/memoriaXII/leetcode-learning-notes",
+    url: "https://github.com",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ let socialLinks = [
   },
   {
     name: "Discord",
-    url: "https://github.com/memoriaXII/leetcode-learning-notes",
+    url: "https://github.com",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ let socialLinks = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/memoriaXII/leetcode-learning-notes",
+    url: "https://github.com",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ let socialLinks = [
   },
   {
     name: "Facebook",
-    url: "https://github.com/memoriaXII/leetcode-learning-notes",
+    url: "https://github.com",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

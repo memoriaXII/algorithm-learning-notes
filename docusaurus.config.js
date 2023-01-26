@@ -29,51 +29,6 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Guides",
-              to: "docs/",
-            },
-            {
-              label: "leetcode-learning-notes",
-              href: "https://github.com/memoriaXII/leetcode-learning-notes",
-            },
-            {
-              label: "Docs Repo",
-              href: "https://github.com/memoriaXII/leetcode-learning-notes",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Discord",
-              href: "",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/memoriaXII/leetcode-learning-notes",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()}`,
-    },
     prism: {
       theme: require("prism-react-renderer/themes/github"),
       darkTheme: require("prism-react-renderer/themes/dracula"),
