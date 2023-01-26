@@ -1,106 +1,124 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
-/** @type {import('@docusaurus/types').Config} */
-const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+module.exports = {
+  title: "leetcode-learning-notes",
+  tagline: "",
+  url: "https://github.com/memoriaXII/leetcode-learning-notes",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
-
+  projectName: "leetcode-learning-notes",
+  themeConfig: {
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
+    navbar: {
+      title: "Learning Notes",
+      items: [
+        {
+          type: "doc",
+          docId: "intro",
+          position: "left",
+          label: "Leetcode",
+        },
+        {
+          href: "https://github.com/facebook/docusaurus",
+          label: "GitHub",
+          position: "right",
+        },
+      ],
+    },
+    footer: {
+      style: "dark",
+      links: [
+        {
+          title: "Docs",
+          items: [
+            {
+              label: "Guides",
+              to: "docs/",
+            },
+            {
+              label: "leetcode-learning-notes",
+              href: "https://github.com/memoriaXII/leetcode-learning-notes",
+            },
+            {
+              label: "Docs Repo",
+              href: "https://github.com/memoriaXII/leetcode-learning-notes",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Discord",
+              href: "",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "Blog",
+              to: "blog",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/memoriaXII/leetcode-learning-notes",
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()}`,
+    },
+    prism: {
+      theme: require("prism-react-renderer/themes/github"),
+      darkTheme: require("prism-react-renderer/themes/dracula"),
+      additionalLanguages: ["protobuf", "toml", "docker", "yaml"],
+    },
+  },
   presets: [
     [
-      "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      "@docusaurus/preset-classic",
+      {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          editLocalizedFiles: true,
+          sidebarCollapsible: true,
+          sidebarCollapsed: false,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editLocalizedFiles: true,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
-      }),
+      },
     ],
   ],
-
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
-      },
-      navbar: {
-        title: "Learning Notes",
-        items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Leetcode",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php"],
-      },
-    }),
-
   plugins: [
     [
-      "docusaurus-plugin-openapi-docs",
+      require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        id: "openapi",
-        docsPluginId: "classic",
-        config: {
-          petstore: {
-            specPath: "examples/petstore.yaml",
-            outputDir: "docs/petstore",
-            downloadUrl:
-              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          },
-        },
+        hashed: true,
+        language: ["en", "zh"],
       },
     ],
   ],
-
-  themes: ["docusaurus-theme-openapi-docs"],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["zh", "en"],
+    localeConfigs: {
+      zh: {
+        label: "中文",
+      },
+      en: {
+        label: "English",
+      },
+    },
+  },
 };
-
-module.exports = config;
