@@ -4,61 +4,71 @@ tags:
   - test
 ---
 
-# 3Sum
+# 3sum
 
-[LeetCode: 3Sum ](https://leetcode.com/problems/intersection-of-two-arrays-ii)
+[LeetCode: 3sum ](https://leetcode.com/problems/3sum)
 
-Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]] </code>such that <code>i != j, i != k, and j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.
+
+Notice that the solution set must not contain duplicate triplets.
+
+### Example 1
 
 ```
-Input: nums1 = [1,2,2,1], nums2 = [2,2]
-Output: [2,2]
-```
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation:
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter.
 
 ```
-Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-Output: [4,9]
-Explanation: [9,4] is also accepted.
+
+### Example 2
+
+```
+Input: nums = [0,1,1]
+Output: []
+Explanation: The only possible triplet does not sum up to 0.
 ```
 
-```jsx title="3Sum"
-function countMap(nums: number[]) {
-  const map = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    const num = nums[i];
-    const count = map.get(num);
-    if (count) {
-      map.set(num, count + 1);
-    } else {
-      map.set(num, 1);
-    }
-  }
-  return map;
-}
-/** x
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number[]}
+```jsx title="3sum"
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
  */
-const intersectArr = (nums1: number[], nums2: number[]) => {
-  const map1 = countMap(nums1);
-  const map2 = countMap(nums2);
-  const res = [];
-  for (const num of map1.keys()) {
-    const count1 = map1.get(num);
-    const count2 = map2.get(num);
-    if (count2) {
-      const pushCount = Math.min(count1, count2);
-      for (let i = 0; i < pushCount; i++) {
-        res.push(num);
+var threeSum = function (nums) {
+  const result = [];
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let start = i + 1;
+    let end = nums.length - 1;
+    while (start < end) {
+      const sums = nums[i] + nums[start] + nums[end];
+      if (sums > 0) {
+        end--;
+      } else if (sums < 0) {
+        start++;
+      } else {
+        result.push([nums[i], nums[start], nums[end]]);
+        while (nums[start] === nums[start + 1]) {
+          start++;
+        }
+        while (nums[end] === nums[end - 1]) {
+          end--;
+        }
+        start++;
+        end--;
       }
     }
   }
-
-  return res;
+  return result;
 };
-
-intersectArr([1, 5, 5, 1], [5, 5, 5]);
 ```
 
 A new page is now available at `http://localhost:3000/my-react-page`.
