@@ -60,5 +60,3 @@ const intersectArr = (nums1: number[], nums2: number[]) => {
 
 intersectArr([1, 5, 5, 1], [5, 5, 5]);
 ```
-
-A new page is now available at `http://localhost:3000/my-react-page`.

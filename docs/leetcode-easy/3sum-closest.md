@@ -37,5 +37,3 @@ Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
  */
 var threeSumClosest = function (nums, target) {};
 ```
-
-A new page is now available at `http://localhost:3000/my-react-page`.

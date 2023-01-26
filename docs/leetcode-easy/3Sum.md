@@ -70,5 +70,3 @@ var threeSum = function (nums) {
   return result;
 };
 ```
-
-A new page is now available at `http://localhost:3000/my-react-page`.
