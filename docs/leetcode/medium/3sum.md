@@ -34,6 +34,8 @@ Output: []
 Explanation: The only possible triplet does not sum up to 0.
 ```
 
+### Solution
+
 ```jsx title="3sum"
 /**
  * @param {number[]} nums

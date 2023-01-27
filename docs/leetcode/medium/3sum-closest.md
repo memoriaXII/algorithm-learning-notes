@@ -29,6 +29,8 @@ Output: 0
 Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
 ```
 
+### Solution
+
 ```jsx title="3sum-closest"
 /**
  * @param {number[]} nums

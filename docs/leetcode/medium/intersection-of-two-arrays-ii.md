@@ -27,6 +27,8 @@ Output: [4,9]
 Explanation: [9,4] is also accepted.
 ```
 
+### Solution
+
 ```jsx title="Intersection of Two Arrays II" :
 function countMap(nums: number[]) {
   const map = new Map();
