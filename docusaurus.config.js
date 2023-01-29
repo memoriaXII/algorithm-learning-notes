@@ -8,6 +8,16 @@ module.exports = {
   favicon: "img/favicon.ico",
   projectName: "leetcode-learning-notes",
   themeConfig: {
+    zoom: {
+      selector: ".markdown :not(em) > img",
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        background: {
+          light: "rgb(255, 255, 255)",
+          dark: "rgb(50, 50, 50)",
+        },
+      },
+    },
     colorMode: {
       defaultMode: "light",
       disableSwitch: true,
@@ -57,6 +67,7 @@ module.exports = {
   ],
   plugins: [
     [
+      require.resolve("docusaurus-plugin-image-zoom"),
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         hashed: true,

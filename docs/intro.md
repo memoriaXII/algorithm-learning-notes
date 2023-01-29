@@ -34,6 +34,8 @@ function addUpTo(n) {
 }
 ```
 
+So we can just simplify this and say that the big o of this is o of n, because as n grows, the number of operations grows in proportion with n.
+
 ### O(n2) :
 
 O(n) operation inside of an O(n) operation, will be O of n sqaure
@@ -52,3 +54,7 @@ function printALlPairs(n)=>{
 }
 
 ```
+
+### Big O notation Chart Comparison
+
+![Chart](https://miro.medium.com/max/1400/1*yiyfZodqXNwMouC0-B0Wlg.png)
