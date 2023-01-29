@@ -53,23 +53,23 @@ Thus, the result should be [1,0].
  * @return {number[]}
  */
 var plusOne = function (digits) {
-  // we start iterating from the end of array.
+  //  starting from the last element
+  // and going backwards to the first element
   for (let i = digits.length - 1; i >= 0; i--) {
-    // if the current digit[i] is under 9  we just increment it by one and breaking the loop.
     if (digits[i] < 9) {
       digits[i]++;
       break;
+    } else if (digits[i] === 9 && i !== 0) {
+      digits[i] = 0;
     }
-
-    // else if the current (digit[i])  equal 9 but not the the first digit in the array, we make it zero
-    else if (digits[i] === 9 && i !== 0) digits[i] = 0;
-    // else if we reached the first digit in the array and it is equal 9, we make it 1 and push a new digit to the end of array which is 0
-    else if (digits[i] === 9 && i == 0) {
-      digits[i] = 1;
-      digits.push(0);
+    // we need to take care another edge case
+    // is that if the first element is 9 then
+    // we need to let it be [1,0] as well
+    else if (digits[i] === 9 && i === 0) {
+      digits[i] = 0;
+      digits.unshift(1);
     }
   }
-
   return digits;
 };
 ```
