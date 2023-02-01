@@ -4,10 +4,9 @@ import Link from "@docusaurus/Link";
 import "./index.css";
 
 const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Algorithm", href: "/docs/intro" },
+  { name: "Javascript", href: "/docs/intro" },
+  { name: "About", href: "/docs/intro" },
 ];
 
 export default function Home() {
@@ -67,12 +66,7 @@ export default function Home() {
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="-m-1.5 p-1.5"
-                  to="/docs/intro"
-                >
+                <Link key={item.name} href={item.href} className="-m-1.5 p-1.5">
                   {item.name}
                 </Link>
               ))}
@@ -100,8 +94,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Data to enrich your online business
+                <h1 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+                  Learning Notes
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
@@ -117,7 +111,7 @@ export default function Home() {
                   </a>
                   <a
                     href="#"
-                    className="text-base font-semibold leading-7 text-gray-900"
+                    className="text-base font-semibold leading-7 text-gray-300"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </a>

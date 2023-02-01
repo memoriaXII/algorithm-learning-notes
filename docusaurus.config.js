@@ -30,10 +30,10 @@ module.exports = {
           type: "doc",
           docId: "intro",
           position: "left",
-          label: "Leetcode",
+          label: "Algorithm",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/memoriaXII/leetcode-learning-notes",
           label: "GitHub",
           position: "right",
         },
