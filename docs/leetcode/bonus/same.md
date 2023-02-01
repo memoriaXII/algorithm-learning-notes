@@ -4,11 +4,9 @@ tags:
   - bonus
 ---
 
-# same
+# Same (Bonus)
 
-[LeetCode: same ](https://leetcode.com/problems/same)
-
-Write a function called same, which accepts two arrays. This should return true if every value in the array has it's corresponding value sqared in the second array. The frequency of values must be the same.
+Write a function called <code>same</code>, which accepts two arrays. This should return true if every value in the array has it's corresponding value sqared in the second array. The frequency of values must be the same.
 
 ### Example 1
 
@@ -42,7 +40,71 @@ function same(arr1: any, arr2: any) {
     if (findIndex === -1) {
       return false;
     }
+    // This would ensure that each element in arr1 is only matched once with a corresponding value in arr2, and produce the correct result.
     arr2.splice(findIndex, 1);
+  }
+  return true;
+}
+```
+
+```jsx title="same (refactor solution)"
+/**
+ * @param {number[]} arr1
+ * @param {number[]} arr2
+ * @return {boolean}
+ */
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+  }
+  for (let key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+```jsx title="same (hashmap solution)"
+const countMap = (arr: any) => {
+  const map = new Map();
+  for (const val of arr) {
+    const count = map.get(val);
+    if (!count) {
+      map.set(val, 1);
+    } else {
+      map.set(val, count + 1);
+    }
+  }
+  return map;
+};
+
+function same(arr1: any, arr2: any) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  const map1: any = countMap(arr1);
+  const map2: any = countMap(arr2);
+
+  for (const key of map1.keys()) {
+    if (!map2.has(key ** 2)) {
+      return false;
+    }
+    if (map2.get(key ** 2) !== map1.get(key)) {
+      return false;
+    }
   }
   return true;
 }
