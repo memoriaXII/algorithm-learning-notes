@@ -4,7 +4,7 @@ tags:
   - bonus
 ---
 
-# Same (Bonus)
+# Same Sqared (Bonus)
 
 Write a function called <code>same</code>, which accepts two arrays. This should return true if every value in the array has it's corresponding value sqared in the second array. The frequency of values must be the same.
 
