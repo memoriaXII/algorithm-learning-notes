@@ -1,7 +1,7 @@
 module.exports = {
   title: "leetcode-learning-notes",
   tagline: "",
-  url: "https://github.com/memoriaXII/leetcode-learning-notes",
+  url: "https://github.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -19,7 +19,7 @@ module.exports = {
       },
     },
     colorMode: {
-      defaultMode: "light",
+      defaultMode: "dark",
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
@@ -65,16 +65,16 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    [
-      require.resolve("docusaurus-plugin-image-zoom"),
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        language: ["en", "zh"],
-      },
-    ],
-  ],
+  // plugins: [
+  //   [
+  //     require.resolve("docusaurus-plugin-image-zoom"),
+  //     require.resolve("@easyops-cn/docusaurus-search-local"),
+  //     {
+  //       hashed: true,
+  //       language: ["en", "zh"],
+  //     },
+  //   ],
+  // ],
   i18n: {
     defaultLocale: "en",
     locales: ["zh", "en"],
