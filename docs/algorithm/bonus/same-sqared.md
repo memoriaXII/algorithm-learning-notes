@@ -31,7 +31,7 @@ Output: false
  * @param {number[]} arr2
  * @return {boolean}
  */
-function same(arr1: any, arr2: any) {
+function same(arr1: number[], arr2: number[]) {
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -78,7 +78,7 @@ function same(arr1, arr2) {
 ```
 
 ```jsx title="same (hashmap solution)"
-const countMap = (arr: any) => {
+const countMap = (arr: number[]) => {
   const map = new Map();
   for (const val of arr) {
     const count = map.get(val);
@@ -91,12 +91,12 @@ const countMap = (arr: any) => {
   return map;
 };
 
-function same(arr1: any, arr2: any) {
+function same(arr1: number[], arr2: number[]) {
   if (arr1.length !== arr2.length) {
     return false;
   }
-  const map1: any = countMap(arr1);
-  const map2: any = countMap(arr2);
+  const map1: number[] = countMap(arr1);
+  const map2: number[] = countMap(arr2);
 
   for (const key of map1.keys()) {
     if (!map2.has(key ** 2)) {

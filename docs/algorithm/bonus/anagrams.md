@@ -71,7 +71,7 @@ Output: true
  * @param {string} string2
  * @return {}
  */
-const countMap = (arr: any) => {
+const countMap = (arr) => {
   const map = new Map();
   for (let i = 0; i < arr.length; i++) {
     const count = map.get(arr[i]);
@@ -84,9 +84,9 @@ const countMap = (arr: any) => {
   return map;
 };
 
-function validAnagrams(string1: string, string2: string) {
-  const map1: any = countMap(string1.split(""));
-  const map2: any = countMap(string2.split(""));
+function validAnagrams(string1, string2) {
+  const map1 = countMap(string1.split(""));
+  const map2 = countMap(string2.split(""));
   for (const num of map1.keys()) {
     if (!map2.get(num)) {
       return false;
