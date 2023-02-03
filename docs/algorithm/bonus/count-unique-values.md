@@ -39,10 +39,42 @@ Output: 4
 
 ### Solution
 
-```jsx title="same (naive solution)"
+```jsx
 /**
  * @param {number[]} arr
- * @return {number[] | undefined}
+ * @return {number[] }
  */
-function countUniqueValues(arr: number[]) {}
+function countUniqueValues(arr) {
+  let uniqueCount = 1;
+  if (arr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] !== arr[i + 1]) {
+      uniqueCount++;
+    }
+  }
+  return uniqueCount;
+}
+```
+
+```jsx
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+function countUniqueValues(arr) {
+  const map = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    const count = map.get(arr[i]);
+    if (count) {
+      // always only settle once
+      map.set(arr[i], count);
+    } else {
+      // record count
+      map.set(arr[i], 1);
+    }
+  }
+  return map.size;
+}
 ```
