@@ -58,7 +58,7 @@ function countUniqueValues(arr) {
 }
 ```
 
-```jsx
+```jsx title="hash map"
 /**
  * @param {number[]} arr
  * @return {number}
@@ -76,5 +76,22 @@ function countUniqueValues(arr) {
     }
   }
   return map.size;
+}
+```
+
+```jsx title="two pointer"
+function countUniqueValues(arr: number[]) {
+  let left = 0; // 1
+  let right = 1; // 3
+  const end = arr.length - 1;
+  while (right !== end + 1) {
+    if (arr[left] === arr[right]) {
+      right++;
+    } else {
+      left++;
+      console.log(arr[left], arr[right]);
+      arr[left] = arr[right];
+    }
+  }
 }
 ```
