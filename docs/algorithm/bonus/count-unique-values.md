@@ -39,7 +39,7 @@ Output: 4
 
 ### Solution
 
-```jsx
+```jsx title="sliding window"
 /**
  * @param {number[]} arr
  * @return {number[] }
@@ -93,5 +93,23 @@ function countUniqueValues(arr: number[]) {
       arr[left] = arr[right];
     }
   }
+}
+```
+
+```jsx title="two pointer"
+function countUniqueValues(arr: number[]) {
+  if (arr.length === 0) return 0;
+  let count = 0;
+  for (let j = 1; j < arr.length; j++) {
+    // check if the are equal, if they are, then is duplicate
+    if (arr[count] !== arr[j]) {
+      // if different then replace it the right side value
+      count++;
+      arr[count] = arr[j];
+    }
+  }
+  // When the initial value of count is set to 1, the first value in the input array is not counted as a unique value. This is because count is only incremented inside the loop when a unique value is encountered,
+  // and the first value in the array is not compared to any other value in the loop.
+  return count + 1;
 }
 ```
