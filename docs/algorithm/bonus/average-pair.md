@@ -45,22 +45,24 @@ Output: true
  * @return {boolean}
  */
 
-function averagePair(arr, targetAverage) {
+const averagePair = (arr, target) => {
   let left = 0;
-  let next = arr.length - 1;
+  let right = arr.length - 1;
   for (let i = 0; i < arr.length; i++) {
-    const sum = (arr[left] + arr[next]) / 2;
-    if (sum === targetAverage) {
+    const sum = (arr[left] + arr[right]) / 2;
+    if (target === sum) {
+      left++;
+      right--;
       return true;
     }
-    if (sum < targetAverage) {
+    if (target > sum) {
       left++;
-    } else {
-      next--;
+    } else if (sum > target) {
+      right--;
     }
   }
   return false;
-}
+};
 ```
 
 <!-- averagePair ([ 1 , 2 , 3 ], 2.5 ) // true
