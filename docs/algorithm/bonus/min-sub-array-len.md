@@ -56,5 +56,33 @@ Output: 5
  * @return {number[]}
  */
 
-function minSubArrayLen(arr, target) {}
+function minSubArrayLen(arr, target) {
+  arr.sort((a, b) => a - b);
+  let sum = 0;
+  let start = 0;
+  let end = 0;
+  // This allows the minLen variable to store the length of the smallest subarray that meets the sum condition while iterating through the array nums.
+  let minLen = Infinity;
+
+  while (start < arr.length) {
+    // if current window doesn't add up to the given target then
+    // move the window to right
+    if (target > sum) {
+      sum += arr[end];
+      end++;
+    }
+    // if current window adds up to at least the target given then
+    // we can shrink the window
+    else if (sum >= target) {
+      minLen = Math.min(minLen, end - start);
+      sum -= arr[start];
+      start++;
+    }
+    // current total less than required total but we reach the end, need this or else we'll be in an infinite loop
+    else {
+      break;
+    }
+  }
+  return minLen === Infinity ? 0 : minLen;
+}
 ```
