@@ -56,33 +56,41 @@ Output: 5
  * @return {number[]}
  */
 
+
 function minSubArrayLen(arr, target) {
-  arr.sort((a, b) => a - b);
-  let sum = 0;
-  let start = 0;
-  let end = 0;
+  arr.sort((a, b) => a - b)
+  let sum = 0
+  let start = 0
+  let end = 0
   // This allows the minLen variable to store the length of the smallest subarray that meets the sum condition while iterating through the array nums.
-  let minLen = Infinity;
+  let minLen = Infinity
 
   while (start < arr.length) {
-    // if current window doesn't add up to the given target then
-    // move the window to right
+    console.log({ start, end }, arr[start], arr[end])
     if (target > sum) {
-      sum += arr[end];
-      end++;
+      sum += arr[end]
+      end++
+      // ex: sum + arr[0] = 1
+      // The end index is incremented by 1, so end is now 1.
+      // The current subarray being considered is now [1, 2], and sum is 3.
     }
-    // if current window adds up to at least the target given then
-    // we can shrink the window
-    else if (sum >= target) {
-      minLen = Math.min(minLen, end - start);
-      sum -= arr[start];
-      start++;
-    }
-    // current total less than required total but we reach the end, need this or else we'll be in an infinite loop
-    else {
-      break;
+
+    // Once the current sum sum becomes greater than or equal to the target sum target, we start subtracting values from sum to get closer to the target sum.
+    else if (sum > target) {
+      // the length of this subarray is end - start, where end is the index of the last element in the subarray and start is the index of the first element in the subarray.
+
+     // Hence, end - start represents the number of characters between the start and end pointers,
+      // i.e., the length of the current substring without repeating characters.
+      minLen = Math.min(minLen, end - start)
+      sum -= arr[start]
+      start++
+    } else {
+      break
     }
   }
-  return minLen === Infinity ? 0 : minLen;
+
+  return minLen === Infinity ? 0 : minLen
+  // target 8
+  // [1,2,3,4,5,6]
 }
 ```
