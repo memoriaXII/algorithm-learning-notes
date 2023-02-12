@@ -36,7 +36,26 @@ binarySearch(
   100
 ); // -1
 
-function binarySearch() {
-  // add whatever parameters you deem necessary - good luck!
+function binarySearch(arr, elem) {
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.floor((start + end) / 2);
+  // 2, 5, 6, 9, 13, 15, 28, 30 elem: 103
+  // if nothing find, then maybe start and end will get together
+
+  //In other words, using start <= end condition ensures that the algorithm will search the entire range of the array even if the element is at the last position in the array, whereas using start < end would stop the search before considering the last index.
+  while (arr[middle] !== elem && start <= end) {
+    if (elem < arr[middle]) {
+      end = middle - 1;
+    } else {
+      //28>9
+      start = middle + 1;
+    }
+    middle = Math.floor((start + end) / 2);
+  }
+  if (arr[middle] === elem) {
+    return middle;
+  }
+  return -1;
 }
 ```
