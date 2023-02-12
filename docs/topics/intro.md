@@ -4,6 +4,6 @@ tags:
   - topics
 ---
 
-# Topics
+# Intro
 
 Let's discover algorithms and data structures.
