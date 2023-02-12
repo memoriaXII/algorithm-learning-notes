@@ -24,13 +24,19 @@ module.exports = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: "Learning Notes",
+      title: "Algorithm Notes",
       items: [
         {
           type: "doc",
-          docId: "intro",
+          docId: "algorithm/intro",
           position: "left",
           label: "Algorithm",
+        },
+        {
+          type: "doc",
+          docId: "topics/intro",
+          position: "left",
+          label: "Topics",
         },
         {
           href: "https://github.com/memoriaXII/leetcode-learning-notes",
