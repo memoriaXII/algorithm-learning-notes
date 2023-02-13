@@ -58,3 +58,5 @@ function printALlPairs(n)=>{
 ### Big O notation Chart Comparison
 
 ![Chart](https://miro.medium.com/max/1400/1*yiyfZodqXNwMouC0-B0Wlg.png)
+
+![Chart](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ETKTwMyKv0nWTy71SEkUAQ.png)
