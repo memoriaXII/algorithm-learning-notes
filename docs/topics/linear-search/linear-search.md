@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 tags:
-  - binary-search
+  - linear-search
 ---
 
 # Linear Search
