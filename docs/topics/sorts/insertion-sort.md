@@ -1,71 +1,31 @@
 ---
 sidebar_position: 1
 tags:
-  - bubble-sort
+  - insertion-sort
 ---
 
 ## Insertion sort
 
-Insertion sort is a simple sorting algorithm that repeatedly steps through a list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.
+Insertion Sort is another simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted sub-list. Here are the steps for performing Insertion Sort on a list of elements:
 
-ps:
-The Insertion sort algorithm requires nested loops to compare adjacent elements and swap them if they are in the wrong order. However, there are other sorting algorithms that do not require nested loops and are generally more efficient than Insertion sort.
+Starting with the second element (index 1) of the list, compare it with the first element (index 0). If the second element is smaller, swap the two elements to put them in sorted order.
+Move to the next element (index 2) and compare it with the elements before it (elements at indices 0 and 1). Insert the element into its correct position in the sorted sub-list of the previous elements, by swapping it with the elements before it until it is in its correct position.
+Continue this process for each remaining element of the list, each time comparing the current element with the sorted sub-list before it, and inserting it into the correct position by swapping with the elements before it.
 
 Here is an example of how Insertion sort works:
 
-```jsx title="Bubble (not optimized)"
-function bubbleSort(arr) {
-  for (let i = arr.length; i > 0; i--) {
-    for (let j = 0; j < i - 1; j++) {
-      console.log(arr, arr[j], arr[j + 1]);
-      if (arr[j] > arr[j + 1]) {
-        const temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
+```jsx
+function insertionSort(arr) {
+  var currentVal;
+  for (var i = 1; i < arr.length; i++) {
+    currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
     }
+    arr[j + 1] = currentVal;
   }
   return arr;
 }
 
-bubbleSort([37, 45, 29, 8]);
-```
-
-```jsx title="bubble (noswap optimized)"
-function bubbleSort(arr: any) {
-  // descending order, -1 because because the last element (which has index i) is already sorted
-  // The purpose of the outer loop is to control the number of iterations needed to sort the array. The outer loop runs arr.length - 1 times, which is the number of passes needed to sort the array.
-  let noSwaps;
-  for (let i = arr.length - 1; i > 0; i--) {
-    noSwaps = true;
-    for (let j = 0; j < i; j++) {
-      // start compare first and second, swap if needed
-      if (arr[j] > arr[j + 1]) {
-        const temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-        noSwaps = false;
-      }
-    }
-    if (noSwaps) break;
-  }
-  return arr;
-}
-```
-
-```javascript
-function bubbleSort(arr) {
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
-
-  for (let i = arr.length; i > 0; i--) {
-    for (let j = 0; j < i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(arr, j, j + 1);
-      }
-    }
-  }
-  return arr;
-}
+insertionSort([2, 1, 9, 76, 4]);
 ```
