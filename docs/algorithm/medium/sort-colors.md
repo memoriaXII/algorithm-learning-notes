@@ -26,7 +26,7 @@ Output: [0,1,2]
 
 ### Solution
 
-```jsx title="Sort Colors" :
+```jsx title="Sort Colors (while loop)" :
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
@@ -50,6 +50,29 @@ const sortColors = function (nums) {
   }
   return nums;
 };
-Input: nums = [2, 0, 1];
-Output: [0, 1, 2];
+```
+
+```jsx title="Sort Colors (for loop)" :
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+function sortColors(arr: any) {
+  for (let i = arr.length; i > 0; i--) {
+    // This is because, in each pass of the outer loop,
+    // the largest unsorted element "bubbles up" to the end of the array.
+    // Therefore, after the first pass, the largest element is in its correct position at the end of the array,
+    // and you don't need to compare it again in subsequent passes.
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // swap
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+      console.log(arr[j + 1], arr[j], "compare");
+    }
+  }
+  return arr;
+}
 ```
