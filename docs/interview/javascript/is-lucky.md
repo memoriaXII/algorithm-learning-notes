@@ -4,7 +4,7 @@ tags:
   - javascript
 ---
 
-# is lucky number (Bonus)
+# is lucky number
 
 /_
 Ticket numbers usually consist of an even number of digits.
@@ -21,25 +21,29 @@ _/
 ### Solution
 
 ```jsx
-function isLucky(n) {
-  // Convert integer to string
-  let str = n.toString();
+function isLucky(n: any) {
+  const arr = n.toString().split("");
 
-  let len = str.length;
+  //   So the differences are:
 
-  // Calculate sum of first half of digits
-  let sum1 = 0;
-  for (let i = 0; i < len / 2; i++) {
-    sum1 += parseInt(str[i]);
-  }
+  // Math.floor always rounds down to the nearest integer.
+  // Math.round rounds to the nearest integer, with ties rounded to the nearest even integer.
+  // Math.ceil always rounds up to the nearest intege
 
-  // Calculate sum of second half of digits
-  let sum2 = 0;
-  for (let i = len / 2; i < len; i++) {
-    sum2 += parseInt(str[i]);
-  }
+  const firstHalfSum = arr
+    .slice(0, Math.round(arr.length / 2))
+    .reduce((acc, curr) => acc + parseInt(curr), 0);
 
-  // Check if sums are equal
-  return sum1 === sum2;
+  console.log(
+    arr.length / 2,
+    Math.floor(arr.length / 2),
+    Math.ceil(arr.length / 2)
+  );
+  // start and end. If you only provide one parameter, like in the expression arr.slice(arr.length / 2), then it is treated as the start parameter and the method returns a new array containing all elements from the start index up to the end of the array.
+  const secondHalfSum = arr
+    .slice(Math.round(arr.length / 2))
+    .reduce((acc, curr) => acc + parseInt(curr), 0);
+
+  return firstHalfSum === secondHalfSum;
 }
 ```

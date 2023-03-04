@@ -17,32 +17,28 @@ Output: false
 ### Solution
 
 ```jsx
-function solution(sequence) {
-  // Initialize a variable to keep track of the number of times the sequence violates the increasing property
+// It counts the number of times the sequence violates the increasing property,
+// and returns false if the count is greater than 1.
+// It checks if each number in the sequence violates the increasing property,
+// and returns false if a number violates the property and cannot be removed to make the sequence increasing.
+
+function solution(arr: any) {
   let count = 0;
-
-  // Iterate over each number in the sequence
-  for (let i = 0; i < sequence.length; i++) {
-    // If the current number is less than or equal to the previous number, increment the count
-    if (sequence[i] <= sequence[i - 1]) {
+  for (let i = 0; i < arr.length; i++) {
+    // check if the next nubmer is larger than previous
+    if (arr[i] <= arr[i - 1]) {
       count++;
-
-      // If the count is greater than 1, the sequence cannot be made increasing by removing only one number
+      //
       if (count > 1) {
         return false;
       }
-
-      // If the current number cannot be removed to make the sequence increasing, return false
-      if (
-        sequence[i] <= sequence[i - 2] &&
-        sequence[i + 1] <= sequence[i - 1]
-      ) {
+      // compare with previous and after
+      if (arr[i] <= arr[i - 2] && arr[i - 1] <= arr[i + 1]) {
         return false;
       }
     }
   }
 
-  // If the count is 0 or 1, the sequence is almost increasing or already increasing
   return true;
 }
 ```
